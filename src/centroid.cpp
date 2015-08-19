@@ -59,7 +59,7 @@ void cloudcb(const PointCloud::ConstPtr& cloud)
       x /= n;
       y /= n;
       if(z > max_z_){
-        printf("No valid points detected, stopping the robot\n");
+        printf("No valid points detected\n");
         
         pcl_usage::Centroid centroid;
         centroid.has_centroid = false;
@@ -81,7 +81,7 @@ void cloudcb(const PointCloud::ConstPtr& cloud)
     }
     else
     {
-      printf("No points detected, stopping the robot (%d)\n",n);
+      printf("No points detected (%d)\n",n);
       pcl_usage::Centroid centroid;
       centroid.has_centroid = false;
       centroidpub_.publish(centroid);
